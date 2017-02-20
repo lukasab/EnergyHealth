@@ -7,6 +7,7 @@
 - [ ] check batery voltage. <br />
 - [ ] check if it has power. <br />
 - [ ] make site that has button to send email with current status(batery voltage, wheather, power).
+- [ ] reduce memory usage 
 - [ ] make more items
 
 Poject by Alex and Lukas
