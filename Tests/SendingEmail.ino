@@ -1,4 +1,4 @@
-#include <UIPEthernet.h> // Used for Ethernet
+#include <UIPEthernet.h> // Used for Ethernet with ENC28J60
 
 // **** ETHERNET SETTING ****
 // Arduino Uno pins: 10 = CS, 11 = MOSI, 12 = MISO, 13 = SCK
@@ -8,34 +8,31 @@ byte mac[] = { 0x54, 0x34, 0x41, 0x30, 0x30, 0x31 };
 
 EthernetClient client;
 char server[] = "www.wiplink.com.br"; // IP Adres (or name) of server to dump data to
-int  interval = 10000; // Wait between dumps
+int  interval = 10000; // Wait time between emails 
 int i = 0;
 
 void setup() {
 
   Serial.begin(9600);
-  Serial.println("Test wiplink");
-  Serial.println("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+  Serial.println("Program: Send Email");
 
   Ethernet.begin(mac);
   delay(1000);
-  Serial.print("IP Address        : ");
+  Serial.print("IP Address: ");
   Serial.println(Ethernet.localIP());
-  Serial.print("Subnet Mask       : ");
+  Serial.print("Subnet Mask: ");
   Serial.println(Ethernet.subnetMask());
   Serial.print("Default Gateway IP: ");
   Serial.println(Ethernet.gatewayIP());
-  Serial.print("DNS Server IP     : ");
+  Serial.print("DNS Server IP: ");
   Serial.println(Ethernet.dnsServerIP());
 }
 
 void loop() {
-  i++;
-  Serial.println("Start");
   // if you get a connection, report back via serial:
   if (client.connect(server, 80)) {
-    
     Serial.println("-> Connected");
+    i++;
     // Make a HTTP request:
     client.print("GET /wimax/ardemail.php?");
     client.print("FromName=arduino&");
