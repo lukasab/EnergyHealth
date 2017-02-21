@@ -1,5 +1,5 @@
 # EnergyHealth
-## An arduino project to check the health of a baterry, check if it is raining, and send status to email.
+## An arduino project to check the health of a batterry, check if it is raining, and send status to email.
 
 ### List to do:<br />
 - [x] check if its raining. <br />
